@@ -1,19 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:padding="16dp">
 
+    <!-- Creating Screen Title -->
     <TextView
+        android:id="@+id/txtMainTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:text="My Pantry"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="12dp"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- Creating Action Buttons Row -->
+    <LinearLayout
+        android:id="@+id/layoutButtons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txtMainTitle"
+        android:orientation="horizontal"
+        android:layout_marginBottom="12dp">
+
+        <Button
+            android:id="@+id/btnAddItem"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="+ Add Item"
+            android:layout_marginEnd="4dp"/>
+
+        <Button
+            android:id="@+id/btnSuggestions"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Suggestions"
+            android:layout_marginEnd="4dp"/>
+
+        <Button
+            android:id="@+id/btnSettings"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Settings"/>
+    </LinearLayout>
+
+    <!-- The Pantry System Must Also Have RecyclerView List -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerPantry"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/layoutButtons"/>
+
+    <!-- Creating An Empty Pantry Warning Text -->
+    <TextView
+        android:id="@+id/txtEmptyPantry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="Your pantry is currently empty.\nTap '+ Add Item' to get started!"
+        android:textAlign="center"
+        android:textSize="16sp"
+        android:visibility="gone"/>
+
+</RelativeLayout>
