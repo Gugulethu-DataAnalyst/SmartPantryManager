@@ -13,11 +13,11 @@ public class RecipeMatcher {
         Cursor pantryCursor = dbHelper.getAllPantryItems();
         if (pantryCursor != null) {
             while (pantryCursor.moveToNext()) {
-                int idIndex = pantryCursor.getColumnIndex("id");
-                int nameIndex = pantryCursor.getColumnIndex("name");
-                int qtyIndex = pantryCursor.getColumnIndex("quantity");
-                int unitIndex = pantryCursor.getColumnIndex("unit");
-                int expiryIndex = pantryCursor.getColumnIndex("expiry_date");
+                int idIndex = pantryCursor.getColumnIndex(DatabaseHelper.COL_PANTRY_ID);
+                int nameIndex = pantryCursor.getColumnIndex(DatabaseHelper.COL_PANTRY_NAME);
+                int qtyIndex = pantryCursor.getColumnIndex(DatabaseHelper.COL_PANTRY_QTY);
+                int unitIndex = pantryCursor.getColumnIndex(DatabaseHelper.COL_PANTRY_UNIT);
+                int expiryIndex = pantryCursor.getColumnIndex(DatabaseHelper.COL_PANTRY_EXPIRY);
 
                 if (idIndex != -1 && nameIndex != -1 && qtyIndex != -1 && unitIndex != -1 && expiryIndex != -1) {
                     pantryItems.add(new PantryItem(
@@ -32,15 +32,15 @@ public class RecipeMatcher {
             pantryCursor.close();
         }
 
-        // 2. Read recipes from Cursor
+        // 2. Read recipes from Cursor using exact DatabaseHelper column constants
         List<Recipe> allRecipes = new ArrayList<>();
         Cursor recipeCursor = dbHelper.getAllRecipes();
         if (recipeCursor != null) {
             while (recipeCursor.moveToNext()) {
-                int idIndex = recipeCursor.getColumnIndex("id");
-                int titleIndex = recipeCursor.getColumnIndex("title");
-                int ingIndex = recipeCursor.getColumnIndex("ingredients");
-                int stepsIndex = recipeCursor.getColumnIndex("instructions");
+                int idIndex = recipeCursor.getColumnIndex(DatabaseHelper.COL_RECIPE_ID);
+                int titleIndex = recipeCursor.getColumnIndex(DatabaseHelper.COL_RECIPE_NAME);
+                int ingIndex = recipeCursor.getColumnIndex(DatabaseHelper.COL_RECIPE_INGREDIENTS);
+                int stepsIndex = recipeCursor.getColumnIndex(DatabaseHelper.COL_RECIPE_STEPS);
 
                 if (idIndex != -1 && titleIndex != -1 && ingIndex != -1 && stepsIndex != -1) {
                     allRecipes.add(new Recipe(
