@@ -61,7 +61,7 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:text="Your pantry is currently empty.\nTap '+ Add Item' to get started!"
-        android:textAlign="center"
+        android:textAlignment="center"
         android:textSize="16sp"
         android:visibility="gone"/>
 

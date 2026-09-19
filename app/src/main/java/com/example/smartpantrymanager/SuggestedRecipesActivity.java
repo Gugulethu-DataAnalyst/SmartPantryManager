@@ -2,7 +2,7 @@
 package com.example.smartpantrymanager;
 
 //importing the libararies and modules
-import andriod.content.Intent;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -49,9 +49,10 @@ public class SuggestedRecipesActivity extends AppCompatActivity {
 
             RecipeAdapter adapter = new RecipeAdapter(matchingRecipes, recipe -> {
                 Intent intent = new Intent(SuggestedRecipesActivity.this, RecipeDetailActivity.class);
-                intent.putExtra("RECIPE_NAME", recipe.getName());
+                intent.putExtra("RECIPE_ID", recipe.getId());
+                intent.putExtra("RECIPE_TITLE", recipe.getTitle());
                 intent.putExtra("RECIPE_INGREDIENTS", recipe.getIngredients());
-                intent.putExtra("RECIPE_STEPS", recipe.getSteps());
+                intent.putExtra("RECIPE_STEPS", recipe.getInstructions());
                 startActivity(intent);
             });
             recyclerView.setAdapter(adapter);

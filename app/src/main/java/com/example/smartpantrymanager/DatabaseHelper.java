@@ -3,14 +3,13 @@
 package com.example.smartpantrymanager;
 
 //importing libraries
-import andriod.content.ContentValues;
-import andriod.content.Context;
-import andriod.database.Cusor;
-import andriod.database.sqlite.SQLiteDatabase;
-import andriod.database.sqlite.SQLiteOpenHelper;
+import android.content.ContentValues;
+import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 
-public class DatabaseHelper {
-
+public class DatabaseHelper extends SQLiteOpenHelper{
     /*=========================================
     creating variables and attributes
     ===========================================*/

@@ -12,23 +12,15 @@ public class RecipeDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_recipe_detail);
 
         TextView txtTitle = findViewById(R.id.txtRecipeTitle);
-        TextView txtIngredients = findViewById(R.id.txtIngredientsList);
-        TextView txtInstructions = findViewById(R.id.txtInstructions);
+        TextView txtIngredients = findViewById(R.id.txtRecipeIngredients);
+        TextView txtSteps = findViewById(R.id.txtRecipeSteps);
 
-        String name = getIntent().getStringExtra("RECIPE_NAME");
-        String rawIngredients = getIntent().getStringExtra("RECIPE_INGREDIENTS");
+        String title = getIntent().getStringExtra("RECIPE_TITLE");
+        String ingredients = getIntent().getStringExtra("RECIPE_INGREDIENTS");
         String steps = getIntent().getStringExtra("RECIPE_STEPS");
 
-        if (txtTitle != null) txtTitle.setText(name);
-
-        // Format pipe-separated ingredients into a bulleted list
-        if (txtIngredients != null && rawIngredients != null) {
-            String formattedIngredients = "• " + rawIngredients.replace("|", "\n• ");
-            txtIngredients.setText(formattedIngredients);
-        }
-
-        if (txtInstructions != null) {
-            txtInstructions.setText(steps);
-        }
+        if (title != null) txtTitle.setText(title);
+        if (ingredients != null) txtIngredients.setText(ingredients);
+        if (steps != null) txtSteps.setText(steps);
     }
 }

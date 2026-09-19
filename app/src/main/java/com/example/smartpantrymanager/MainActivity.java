@@ -1,7 +1,6 @@
 package com.example.smartpantrymanager;
-
 //importing all modules and libraries
-import andriod.content.Intent;
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
