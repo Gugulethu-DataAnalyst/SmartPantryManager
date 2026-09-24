@@ -1,5 +1,6 @@
 package com.example.smartpantrymanager;
 
+//importing modules and libaries
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;

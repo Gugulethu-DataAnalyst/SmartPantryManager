@@ -1,5 +1,7 @@
+//initializing the smartpantry package source
 package com.example.smartpantrymanager;
 
+//importing the libaries and module
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -9,12 +11,15 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class AddEditActivity extends AppCompatActivity {
 
+    //creating private accessible variable functions for the systems
+    // edittext, button,text view and database helper
     private EditText edtName, edtQty, edtUnit, edtExpiry;
     private Button btnSave;
     private TextView txtHeader;
     private DatabaseHelper dbHelper;
     private int itemId = -1;
 
+    //overriding the oncreate function
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,7 +53,7 @@ public class AddEditActivity extends AppCompatActivity {
         String unit = edtUnit.getText().toString().trim();
         String expiry = edtExpiry.getText().toString().trim();
 
-        // Input Validation
+        // Input validation sequence
         if (name.isEmpty() || qtyStr.isEmpty() || unit.isEmpty()) {
             Toast.makeText(this, "Please fill in all required fields", Toast.LENGTH_SHORT).show();
             return;
@@ -69,6 +74,7 @@ public class AddEditActivity extends AppCompatActivity {
             success = dbHelper.updatePantryItem(itemId, name, qty, unit, expiry);
         }
 
+        //if success then the pantry will update, else error
         if (success) {
             Toast.makeText(this, "Pantry updated successfully!", Toast.LENGTH_SHORT).show();
             finish();

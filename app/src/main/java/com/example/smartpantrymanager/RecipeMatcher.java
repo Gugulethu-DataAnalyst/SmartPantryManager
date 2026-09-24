@@ -3,13 +3,13 @@ package com.example.smartpantrymanager;
 import android.database.Cursor;
 import java.util.ArrayList;
 import java.util.List;
-
+//creating the puclinc class for recipe matcher
 public class RecipeMatcher {
-
+    //using the list - we will get suggestions if they match, so we must initialize the list
     public static List<Recipe> getSuggestedRecipes(DatabaseHelper dbHelper) {
         List<PantryItem> pantryItems = new ArrayList<>();
 
-        // 1. Read pantry items from Cursor
+        // 1. Reading pantry items from Cursor
         Cursor pantryCursor = dbHelper.getAllPantryItems();
         if (pantryCursor != null) {
             while (pantryCursor.moveToNext()) {

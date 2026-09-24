@@ -1,18 +1,22 @@
 package com.example.smartpantrymanager;
 
+//importing the modules
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+//initializing public class extending to the SQLiteOpenHelper
 public class DatabaseHelper extends SQLiteOpenHelper {
 
+    //initializibg the database
     private static final String DATABASE_NAME = "SmartPantry.db";
-    // Bumped to version 2 so existing databases trigger onUpgrade() and re-seed recipes with commas
+    //Bumped to version 2 so existing databases will trigger the onUpgrade()
+    // and re-seed recipes with commas
     private static final int DATABASE_VERSION = 2;
 
-    // Pantry Table Attributes
+    //Pantry table attributes
     public static final String TABLE_PANTRY = "pantry";
     public static final String COL_PANTRY_ID = "id";
     public static final String COL_PANTRY_NAME = "name";
@@ -20,7 +24,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String COL_PANTRY_UNIT = "unit";
     public static final String COL_PANTRY_EXPIRY = "expiry_date";
 
-    // Recipes Table Attributes
+    //Recipes table attributes
     public static final String TABLE_RECIPES = "recipes";
     public static final String COL_RECIPE_ID = "id";
     public static final String COL_RECIPE_NAME = "name";
@@ -85,7 +89,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.insert(TABLE_RECIPES, null, cv);
     }
 
-    // --- CRUD OPERATIONS FOR PANTRY ---
+    /*--------------------------------------
+    CRUD OPERATIONS FOR PANTRY
+    ---------------------------------------*/
     public boolean addPantryItem(String name, double quantity, String unit, String expiry) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();

@@ -1,4 +1,6 @@
+//initializingthe source smartpantry manager as package
 package com.example.smartpantrymanager;
+
 //importing all modules and libraries
 import android.content.Intent;
 import android.database.Cursor;
@@ -15,7 +17,6 @@ import java.util.List;
 
 //initializing the public main class extending the appcomtActivity
 public class MainActivity extends AppCompatActivity {
-
     //initializing the variables
     private RecyclerView recyclerView;
     private TextView txtEmptyPantry;
@@ -78,14 +79,19 @@ public class MainActivity extends AppCompatActivity {
         }
         cursor.close();
 
+        //creating a condition that will look at the item list
+        // if empty the settting the visibility to View.Gone
+        //else view.Visible
         if (itemList.isEmpty()) {
             txtEmptyPantry.setVisibility(View.VISIBLE);
             recyclerView.setVisibility(View.GONE);
+
         } else {
             txtEmptyPantry.setVisibility(View.GONE);
             recyclerView.setVisibility(View.VISIBLE);
 
             PantryAdapter adapter = new PantryAdapter(itemList, new PantryAdapter.OnItemClickListener() {
+                //overriding the edit click button to get the variables from the databaste
                 @Override
                 public void onEditClick(PantryItem item) {
                     Intent intent = new Intent(MainActivity.this, AddEditActivity.class);

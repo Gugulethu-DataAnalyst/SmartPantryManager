@@ -7,7 +7,7 @@ public class PantryItem {
     private String unit;
     private String expiryDate;
 
-    // Constructor with ID
+    //Constructor with ID
     public PantryItem(int id, String name, double quantity, String unit, String expiryDate) {
         this.id = id;
         this.name = name;
@@ -16,7 +16,7 @@ public class PantryItem {
         this.expiryDate = expiryDate;
     }
 
-    // Constructor without ID (for creating new items)
+    //Constructor without ID (for creating new items)
     public PantryItem(String name, double quantity, String unit, String expiryDate) {
         this.name = name;
         this.quantity = quantity;
@@ -24,7 +24,7 @@ public class PantryItem {
         this.expiryDate = expiryDate;
     }
 
-    // Getters
+    //Getters
     public int getId() {
         return id;
     }
@@ -45,7 +45,7 @@ public class PantryItem {
         return expiryDate;
     }
 
-    // Setters
+    //Setters
     public void setId(int id) {
         this.id = id;
     }

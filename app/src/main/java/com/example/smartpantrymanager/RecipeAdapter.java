@@ -1,5 +1,5 @@
 package com.example.smartpantrymanager;
-
+//importing modules
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,15 +8,18 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
+//creating public class extending the recycle view adapter
 public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.RecipeViewHolder> {
 
     public interface OnRecipeClickListener {
         void onRecipeClick(Recipe recipe);
     }
 
+    //initializing the list to store elements
     private List<Recipe> recipeList;
     private OnRecipeClickListener listener;
 
+    //constructor
     public RecipeAdapter(List<Recipe> recipeList, OnRecipeClickListener listener) {
         this.recipeList = recipeList;
         this.listener = listener;
